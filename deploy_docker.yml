@@ -1,0 +1,14 @@
+- name: Run Docker Container
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: Build Docker Image
+      command: sudo docker run hello-world
+      #docker build -t sample-app .
+    - name: Run Docker Container
+      #command: sudo docker images
+      #command: sudo docker build -t sample-app
+      command: sudo docker run -d -p 80:80 sample-app
+
+
+   
